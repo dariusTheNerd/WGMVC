@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WGModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WGModelStoreContainer">
+    <EntitySet Name="WGCategories" EntityType="WGModel.Store.WGCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WgProducts" EntityType="WGModel.Store.WgProducts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WGStatus" EntityType="WGModel.Store.WGStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WGVendors" EntityType="WGModel.Store.WGVendors" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_WgProducts_WGCategories1" Association="WGModel.Store.FK_WgProducts_WGCategories1">
+      <End Role="WGCategories" EntitySet="WGCategories" />
+      <End Role="WgProducts" EntitySet="WgProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WgProducts_WGStatus1" Association="WGModel.Store.FK_WgProducts_WGStatus1">
+      <End Role="WGStatus" EntitySet="WGStatus" />
+      <End Role="WgProducts" EntitySet="WgProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WgProducts_WGVendors1" Association="WGModel.Store.FK_WgProducts_WGVendors1">
+      <End Role="WGVendors" EntitySet="WGVendors" />
+      <End Role="WgProducts" EntitySet="WgProducts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="WGCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="WgProducts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WGStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WGVendors">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Website" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="LogoUrl" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_WgProducts_WGCategories1">
+    <End Role="WGCategories" Type="WGModel.Store.WGCategories" Multiplicity="0..1" />
+    <End Role="WgProducts" Type="WGModel.Store.WgProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WGCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WgProducts">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WgProducts_WGStatus1">
+    <End Role="WGStatus" Type="WGModel.Store.WGStatus" Multiplicity="1" />
+    <End Role="WgProducts" Type="WGModel.Store.WgProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WGStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WgProducts">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WgProducts_WGVendors1">
+    <End Role="WGVendors" Type="WGModel.Store.WGVendors" Multiplicity="1" />
+    <End Role="WgProducts" Type="WGModel.Store.WgProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WGVendors">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WgProducts">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

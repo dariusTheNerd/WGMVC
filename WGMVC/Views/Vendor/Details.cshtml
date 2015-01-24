@@ -1,0 +1,30 @@
+﻿@model WGMVC.WGVendor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>WGVendor</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Website</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Website)
+    </div>
+
+    <div class="display-label">LogoUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LogoUrl)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

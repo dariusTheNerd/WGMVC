@@ -1,0 +1,48 @@
+﻿@model PagedList.IPagedList<WGMVC.WGVendor>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>Page @Model.PageNumber of @Model.PageCount</p>
+@Html.PagedListPager(Model,page => Url.Action("Index", new {page}))
+
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Website
+        </th>
+        <th>
+            LogoUrl
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+           <a href="@item.Website" target="_blank">@item.Website</a>
+        </td>
+        <td>
+            <img src="@Url.Content("~/Content/Img/" + item.LogoUrl)" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WGModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WGEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="WGCategories" EntityType="WGModel.WGCategory" />
+    <EntitySet Name="WgProducts" EntityType="WGModel.WgProduct" />
+    <EntitySet Name="WGStatus" EntityType="WGModel.WGStatu" />
+    <EntitySet Name="WGVendors" EntityType="WGModel.WGVendor" />
+    <AssociationSet Name="FK_WgProducts_WGCategories1" Association="WGModel.FK_WgProducts_WGCategories1">
+      <End Role="WGCategories" EntitySet="WGCategories" />
+      <End Role="WgProducts" EntitySet="WgProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WgProducts_WGStatus1" Association="WGModel.FK_WgProducts_WGStatus1">
+      <End Role="WGStatus" EntitySet="WGStatus" />
+      <End Role="WgProducts" EntitySet="WgProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WgProducts_WGVendors1" Association="WGModel.FK_WgProducts_WGVendors1">
+      <End Role="WGVendors" EntitySet="WGVendors" />
+      <End Role="WgProducts" EntitySet="WgProducts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="WGCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="WgProducts" Relationship="WGModel.FK_WgProducts_WGCategories1" FromRole="WGCategories" ToRole="WgProducts" />
+  </EntityType>
+  <EntityType Name="WgProduct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ImageUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="VendorID" Type="Int32" Nullable="false" />
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="WGCategory" Relationship="WGModel.FK_WgProducts_WGCategories1" FromRole="WgProducts" ToRole="WGCategories" />
+    <NavigationProperty Name="WGStatu" Relationship="WGModel.FK_WgProducts_WGStatus1" FromRole="WgProducts" ToRole="WGStatus" />
+    <NavigationProperty Name="WGVendor" Relationship="WGModel.FK_WgProducts_WGVendors1" FromRole="WgProducts" ToRole="WGVendors" />
+  </EntityType>
+  <EntityType Name="WGStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="WgProducts" Relationship="WGModel.FK_WgProducts_WGStatus1" FromRole="WGStatus" ToRole="WgProducts" />
+  </EntityType>
+  <EntityType Name="WGVendor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Website" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="LogoUrl" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="WgProducts" Relationship="WGModel.FK_WgProducts_WGVendors1" FromRole="WGVendors" ToRole="WgProducts" />
+  </EntityType>
+  <Association Name="FK_WgProducts_WGCategories1">
+    <End Role="WGCategories" Type="WGModel.WGCategory" Multiplicity="0..1" />
+    <End Role="WgProducts" Type="WGModel.WgProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WGCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WgProducts">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WgProducts_WGStatus1">
+    <End Role="WGStatus" Type="WGModel.WGStatu" Multiplicity="1" />
+    <End Role="WgProducts" Type="WGModel.WgProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WGStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WgProducts">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WgProducts_WGVendors1">
+    <End Role="WGVendors" Type="WGModel.WGVendor" Multiplicity="1" />
+    <End Role="WgProducts" Type="WGModel.WgProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WGVendors">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WgProducts">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

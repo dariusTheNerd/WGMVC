@@ -1,0 +1,54 @@
+﻿@model WGMVC.WgProduct
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>WgProduct</legend>
+
+    <div class="display-label">name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">Price</div>
+    <div class="display-field">
+      @*  @Html.DisplayFor(model => model.Price)
+    *@
+        <img src="@Url.Content("~/Content/img/"+Model.ImageUrl )"
+            style="max-width:400px" />
+    </div>
+
+    <div class="display-label">ImageUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageUrl)
+    </div>
+
+    <div class="display-label">WGCategory</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WGCategory.Name)
+    </div>
+
+    <div class="display-label">WGVendor</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WGVendor.Name)
+    </div>
+
+    <div class="display-label">WGStatu</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WGStatu.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+   @Html.ActionLink("Discontinue Product", "Delete", "Product", new {id = Model.ID },null)
+     @Html.ActionLink("Back to List", "Index")
+</p>

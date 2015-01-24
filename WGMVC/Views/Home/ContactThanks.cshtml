@@ -1,0 +1,19 @@
+﻿@model WGMVC.Models.ContactInfo
+
+@{
+    ViewBag.Title = "ContactThanks";
+}
+
+<h2>Thank You @Model.Name for contacting WG</h2>
+
+<p>
+    @if (ViewBag.MessageSent)
+    {
+        @: Your Message was sent
+
+    }
+    else
+    { 
+    @: Sorry.. Something Went wrong
+    }
+</p>

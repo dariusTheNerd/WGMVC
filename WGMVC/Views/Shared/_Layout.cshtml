@@ -1,0 +1,210 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="" />
+    <meta name="keyword" content="" />
+
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/reset.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/styles.css")" type="text/css" />    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="@Url.Content("~/Content/PagedList.css")" type="text/css" />
+
+    <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+    <script type="text/javascript" src="@Url.Content("~/scripts/js/jquery.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/js/slider.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/js/superfish.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/scripts/js/custom.js")"></script>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <script>
+        //code for the selected link
+        $(function () {
+            //get each of the nav links
+            $(".mainNav a").each(function () {
+                var a = $(this);
+                if (a.attr('href') == window.location.pathname) {
+                    a.parent('li').addClass("selected");
+                    //for the sidebar links 
+                    a.addClass("selected");
+                }
+
+            });
+        });
+
+    </script>
+
+    <!--
+city, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+Download: http://zypopwebtemplates.com/
+
+License: Creative Commons Attribution
+//-->
+</head>
+<body>
+    <div id="container">
+
+        <header>
+            <div class="width">
+
+                <h1><a href="/">Widgets<strong>&amp</strong>Gadgets</a></h1>
+
+                <nav>
+
+                    <ul class="sf-menu dropdown mainNav"  >
+
+
+                        <li ><a href="@Url.Action("Index","Home")"><i class="fa fa-home"></i>Home</a></li>
+
+                        <li>
+
+                            <a href="@Url.Action("About","Home")"><i class="fa fa-male"></i>About</a>
+
+                        </li>
+
+           
+
+                        <li>
+
+                            <a href="@Url.Action("Index","Product")"><i class="fa fa-star"></i>Products</a>
+                            @{
+                                //go get category
+                                var categories = new WGMVC.WGEntities().WGCategories.OrderBy(x => x.Name);
+                                }
+                            
+                            <ul>
+                                @foreach (var item in categories)
+                                {
+                                     <li>
+                                         <a href="@Url.Action("Index", "Product", new {CategoryId = item.Id })">@item.Name</a>
+                                     </li>
+                                }
+                               
+                            </ul>
+                           
+
+                        </li>
+
+                        <li><a href="@Url.Action("Contact", "Home")"><i class="fa fa-phone"></i>Contact</a></li>
+                 <li >
+                     @if (User.Identity.IsAuthenticated)
+                     {
+                         //user is logged in  
+                         <a href="@Url.Action("LogOff","Account")"><i class="fa fa-lock"></i>Log Out</a>
+                     }
+                     else
+                     { 
+                            <a href="@Url.Action("LogOn","Account")"><i class="fa fa-lock"></i>Log On</a>
+             
+                     }
+                     
+                 </li>  
+                        @*  *@
+ </ul>
+                    <div class="clear"></div>
+                </nav>
+            </div>
+
+            <div class="clear"></div>
+
+
+        </header>
+
+
+        <div id="intro">
+
+            <div class="width">
+                @* sections ar optional content placeholders that the views can use to add content *@
+                @RenderSection("intro",false)
+
+            </div>
+
+
+        </div>
+
+        <div id="body" class="width">
+
+
+
+            <section id="content" class="two-column with-right-sidebar">
+
+                <article>
+            @RenderBody()
+
+                    
+
+
+                </article>
+
+     
+            </section>
+
+            <aside class="sidebar big-sidebar right-sidebar">
+
+
+                <ul>
+                 
+                      <li>
+   @if (User.Identity.IsAuthenticated)
+                      {
+                          <p> Welcom, @User.Identity.Name</p>
+                      }
+                          @if (User.IsInRole("admin"))
+                          {
+                                 <h4>Admin Menu</h4>
+                        <ul class="blocklist mainNav">
+                            <li><a  href="@Url.Action("Index","Category")">Manage Categories</a></li>
+                          <li><a  href="@Url.Action("Index","Vendor")">Manage Vendors</a></li>
+                            <li><a  href="@Url.Action("Index","Status")">Manage Products Statuses</a></li>
+  </ul>
+                          }
+                     
+                      
+                    </li>
+
+
+
+
+
+                  
+                </ul>
+
+            </aside>
+            <div class="clear"></div>
+        </div>
+        <footer>
+            <div class="footer-content width">
+               
+
+    
+
+                        <div class="social-icons">
+
+                            <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+
+                            <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+
+                            <a href="#"><i class="fa fa-youtube fa-2x"></i></a>
+
+                            <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+
+                        </div>
+
+                 
+
+                <div class="clear"></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Nerdevelment. Thanks to: <a href="http://zypopwebtemplates.com/">Free HTML5 Templates</a> by ZyPOP</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

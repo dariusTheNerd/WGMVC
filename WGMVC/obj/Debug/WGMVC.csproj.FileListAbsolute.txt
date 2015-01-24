@@ -1,0 +1,50 @@
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\WGMVC.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\WGMVC.pdb
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\EntityFramework.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\Microsoft.Web.Infrastructure.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Helpers.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Mvc.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Providers.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Razor.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.Deployment.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.Razor.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\EntityFramework.xml
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Helpers.xml
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Mvc.xml
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Razor.xml
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.xml
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.Deployment.xml
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.Razor.xml
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\obj\Debug\WGMVC.csprojResolveAssemblyReference.cache
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\obj\Debug\WGMVC.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\obj\Debug\WGMVC.pdb
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\PagedList.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\PagedList.Mvc.dll
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\PagedList.xml
+c:\users\dariu_000\documents\visual studio 2012\Projects\WGMVC\WGMVC\bin\PagedList.Mvc.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\WGMVC.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\WGMVC.pdb
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\EntityFramework.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\PagedList.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\PagedList.Mvc.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Helpers.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Mvc.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Providers.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Razor.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\PagedList.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\PagedList.Mvc.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\EntityFramework.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Helpers.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Mvc.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.Razor.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\obj\Debug\WGMVC.csprojResolveAssemblyReference.cache
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\obj\Debug\WGMVC.dll
+C:\Users\dariu_000.JESS\Desktop\11-15_ projects and desktop\Documents\Visual Studio 2012\Projects\WGMVC\WGMVC\obj\Debug\WGMVC.pdb

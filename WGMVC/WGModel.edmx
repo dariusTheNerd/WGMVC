@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WGModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="WGModelStoreContainer">
+          <EntitySet Name="WGCategories" EntityType="WGModel.Store.WGCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WgProducts" EntityType="WGModel.Store.WgProducts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WGStatus" EntityType="WGModel.Store.WGStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WGVendors" EntityType="WGModel.Store.WGVendors" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_WgProducts_WGCategories1" Association="WGModel.Store.FK_WgProducts_WGCategories1">
+            <End Role="WGCategories" EntitySet="WGCategories" />
+            <End Role="WgProducts" EntitySet="WgProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WgProducts_WGStatus1" Association="WGModel.Store.FK_WgProducts_WGStatus1">
+            <End Role="WGStatus" EntitySet="WGStatus" />
+            <End Role="WgProducts" EntitySet="WgProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WgProducts_WGVendors1" Association="WGModel.Store.FK_WgProducts_WGVendors1">
+            <End Role="WGVendors" EntitySet="WGVendors" />
+            <End Role="WgProducts" EntitySet="WgProducts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="WGCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="WgProducts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WGStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WGVendors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Website" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="LogoUrl" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_WgProducts_WGCategories1">
+          <End Role="WGCategories" Type="WGModel.Store.WGCategories" Multiplicity="0..1" />
+          <End Role="WgProducts" Type="WGModel.Store.WgProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WGCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WgProducts">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WgProducts_WGStatus1">
+          <End Role="WGStatus" Type="WGModel.Store.WGStatus" Multiplicity="1" />
+          <End Role="WgProducts" Type="WGModel.Store.WgProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WGStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WgProducts">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WgProducts_WGVendors1">
+          <End Role="WGVendors" Type="WGModel.Store.WGVendors" Multiplicity="1" />
+          <End Role="WgProducts" Type="WGModel.Store.WgProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WGVendors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WgProducts">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WGModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WGEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="WGCategories" EntityType="WGModel.WGCategory" />
+          <EntitySet Name="WgProducts" EntityType="WGModel.WgProduct" />
+          <EntitySet Name="WGStatus" EntityType="WGModel.WGStatu" />
+          <EntitySet Name="WGVendors" EntityType="WGModel.WGVendor" />
+          <AssociationSet Name="FK_WgProducts_WGCategories1" Association="WGModel.FK_WgProducts_WGCategories1">
+            <End Role="WGCategories" EntitySet="WGCategories" />
+            <End Role="WgProducts" EntitySet="WgProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WgProducts_WGStatus1" Association="WGModel.FK_WgProducts_WGStatus1">
+            <End Role="WGStatus" EntitySet="WGStatus" />
+            <End Role="WgProducts" EntitySet="WgProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WgProducts_WGVendors1" Association="WGModel.FK_WgProducts_WGVendors1">
+            <End Role="WGVendors" EntitySet="WGVendors" />
+            <End Role="WgProducts" EntitySet="WgProducts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="WGCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="WgProducts" Relationship="WGModel.FK_WgProducts_WGCategories1" FromRole="WGCategories" ToRole="WgProducts" />
+        </EntityType>
+        <EntityType Name="WgProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ImageUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WGCategory" Relationship="WGModel.FK_WgProducts_WGCategories1" FromRole="WgProducts" ToRole="WGCategories" />
+          <NavigationProperty Name="WGStatu" Relationship="WGModel.FK_WgProducts_WGStatus1" FromRole="WgProducts" ToRole="WGStatus" />
+          <NavigationProperty Name="WGVendor" Relationship="WGModel.FK_WgProducts_WGVendors1" FromRole="WgProducts" ToRole="WGVendors" />
+        </EntityType>
+        <EntityType Name="WGStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="WgProducts" Relationship="WGModel.FK_WgProducts_WGStatus1" FromRole="WGStatus" ToRole="WgProducts" />
+        </EntityType>
+        <EntityType Name="WGVendor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="LogoUrl" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="WgProducts" Relationship="WGModel.FK_WgProducts_WGVendors1" FromRole="WGVendors" ToRole="WgProducts" />
+        </EntityType>
+        <Association Name="FK_WgProducts_WGCategories1">
+          <End Role="WGCategories" Type="WGModel.WGCategory" Multiplicity="0..1" />
+          <End Role="WgProducts" Type="WGModel.WgProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WGCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WgProducts">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WgProducts_WGStatus1">
+          <End Role="WGStatus" Type="WGModel.WGStatu" Multiplicity="1" />
+          <End Role="WgProducts" Type="WGModel.WgProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WGStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WgProducts">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WgProducts_WGVendors1">
+          <End Role="WGVendors" Type="WGModel.WGVendor" Multiplicity="1" />
+          <End Role="WgProducts" Type="WGModel.WgProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WGVendors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WgProducts">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WGModelStoreContainer" CdmEntityContainer="WGEntities">
+          <EntitySetMapping Name="WGCategories">
+            <EntityTypeMapping TypeName="WGModel.WGCategory">
+              <MappingFragment StoreEntitySet="WGCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WgProducts">
+            <EntityTypeMapping TypeName="WGModel.WgProduct">
+              <MappingFragment StoreEntitySet="WgProducts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WGStatus">
+            <EntityTypeMapping TypeName="WGModel.WGStatu">
+              <MappingFragment StoreEntitySet="WGStatus">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WGVendors">
+            <EntityTypeMapping TypeName="WGModel.WGVendor">
+              <MappingFragment StoreEntitySet="WGVendors">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
